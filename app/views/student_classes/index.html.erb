@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Courses</h1>
+
+<%= link_to "Enrol In Course", new_student_student_class_path(@student.id) %>
+<table>
+  <tr>
+    <th>Course ID</th>
+    <th>Course Name</th>
+    <th>Action</th>
+  </tr>
+  
+  <% if @student_classes.count != 0 %>
+    <% @student_classes.each do |student_course| %>
+
+    <tr class="student-list-row">
+        <td class="student-list-item"><%= student_course.course.id %></td>
+        <td class="student-list-item"><%= student_course.course.course_name %></td>
+        <td><%= link_to 'Delete', remove_student_from_course_student_class_path(student_course.course.id) %></td>
+				<td><%= link_to 'Show', student_class_path(student_course.id) %></td>
+    </tr>
+
+    <% end %>
+	<% else %>
+		<tr class="student-list-row">
+			<td colspan="3">
+				No Enrolled in Any Course Yet
+			</td>
+		</tr>
+	<% end %>
+
+</table>
+
+<%= link_to 'Back', students_path %>
+
+

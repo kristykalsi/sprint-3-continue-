@@ -1,0 +1,40 @@
+
+<div>
+  <label>Select Student</label>
+  <br />
+  <%= select_tag :students,options_for_select(@students.map{|s| [s.first_name+" "+ s.last_name, s.id]}, @student.id), {onchange: 'show_user_comment(event)', class: 'student-select', include_blank: 'Select Student'} %>
+</div>
+<script>
+  function show_user_comment(event){
+    student_id = event.target.value;
+    if(student_id == '' || student_id == undefined){
+      window.location = `/comments`
+    }else{
+      window.location = `/comments/${student_id}/show-comments`
+    }
+  }
+</script>
+<% if @comments.count.to_i != 0 %>
+
+  <table>
+    <tr class="student-list-row">
+      <th class="student-list-item">Notes</th>
+      <th class="student-list-item">Date</th>
+      <th class="student-list-item">Action</th>
+    </tr>
+      
+    <% @comments.each do |comment| %>
+
+    <tr class="student-list-row">
+      <td class="student-list-item"><%= comment.body %></td>
+      <td class="student-list-item"><%= comment.created_at.strftime("%Y-%M-%d") %></td>
+      <td class="student-list-item"><%= link_to "Delete", delete_comment_path(comment) %></td>
+    </tr>
+
+    <% end %>
+
+    </tr>
+  </table>
+<% else %>
+ <h1>No Notes data available</h1> 
+<% end %>

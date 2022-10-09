@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+<h2>Student: <%= @student_class.student.name %></h2>
+<h1>Tasks</h1>
+
+<%= form_for StudentTask.new do |f| %>
+    <%= f.hidden_field :student_id, value: @student_class.student.id %>
+<table>
+  <tr>
+    <th>Task ID</th>
+    <th>Task Name</th>
+  </tr>
+  
+    <% @tasks.each do |task| %>
+        <tr class="student-list-row">
+            <td>
+                <%if  @student_tasks.include?(task) %>
+                    <input type="checkbox" name="task_ids[]" value="<%= task.id %>" checked>
+                <% else %>
+                    <input type="checkbox" name="task_ids[]" value="<%= task.id %>" >
+                <% end %>
+            </td>
+            <td class="student-list-item"><%= task.id %></td>
+            <td class="student-list-item"><%= task.name %></td>
+        </tr>
+    <% end %>
+    
+    </table>
+    
+    <%= f.submit "Save" %>
+<% end %>
+
+<div style="margin: 20px">
+    <strong>Progress Bar</strong>
+    <div style="width: <%= (@student_tasks.count / @tasks.count.to_f) * 100 %>%; background-color: green; height: 20px"></div>
+</div>
+<%= link_to 'Back', student_student_classes_path(@student_class.student.id) %>
+
+

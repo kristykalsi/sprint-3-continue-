@@ -1,0 +1,39 @@
+<h1><%= @student.name%></h1>
+
+<table>
+<tr >
+
+
+  <th>Course Name</th>
+  <th>Unit Name</th>
+  <th>Unit Code</th>
+  <th>ID</th>
+  <th>Enrolled</th>
+  <th>Cy</th>
+  <th>Awaiting Confirmation</th>
+  <th>Profiling</th>
+  <th>Missed</th>
+  <th>Skills</th>
+  <th>UKT</th>
+  <th>Waiting On Staff</th>
+
+<% @student.grades.each do |grade| %>
+  
+  <tr class="student-list-row">
+    <td class="student-list-item"><%= grade.unit.course.course_name %></td>
+    <td class="student-list-item"><%= grade.unit.unit_name %></td>
+    <td class="student-list-item"><%= grade.unit.unit_code %></td>
+    <td class="student-list-item"><%= grade.id %></td>
+    <td class="student-list-item"><%= grade.enrolled %></td>
+    <td class="student-list-item"><%= grade.cy %></td>
+    <td class="student-list-item"><%= grade.awaiting_confirmation %></td>
+    <td class="student-list-item"><%= grade.profiling %></td>
+    <td class="student-list-item"><%= grade.missed %></td>
+    <td class="student-list-item"><%= grade.skills %></td>
+    <td class="student-list-item"><%= grade.ukt %></td>
+    <td class="student-list-item"><%= grade.waiting_on_staff %></td>
+
+  </tr>
+  <% end %>
+
+</tr>

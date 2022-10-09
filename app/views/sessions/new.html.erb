@@ -1,0 +1,22 @@
+<div class="login-container">
+  <% if flash[:notice] %>
+    <%= content_tag :h1, flash[:notice] %>
+  <% end %>
+  <%= content_tag :h1, "Login", class: "login-form-header" %>
+
+  <div class="login-form">
+  <%= form_with url: sessions_path do |f| %>
+    <%= f.label "Username:", class: "login-form-label" %>
+    <%= f.text_field :email, placeholder: "test@mail.com" %><br>
+    <%= f.label "Password:", class: "login-form-label" %>
+    <%= f.password_field :password, placeholder: "**********" %><br>
+    <% if flash[:error] %>
+      <%= content_tag :h1, flash[:error], class: "form-errors" %>
+    <% end %>
+    <div>
+      <%= f.submit "Login", class: "login-button" %>
+    </div>
+    
+  <% end %>
+  </div>
+</div>

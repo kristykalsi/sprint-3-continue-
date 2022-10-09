@@ -1,0 +1,27 @@
+<h1><%= @course.course_name %></h1>
+
+
+ <table>
+ <tr >
+
+    <tr class="student-list-row">
+      <th>Unit Name</th>
+      <th>Unit Code</th>
+      <th>Unit ID</th>
+      <th>Action</th>
+
+      <% @course.units.each do |unit| %>
+
+        <tr class="student-list-row">
+          <td class="student-list-item"><%= unit.unit_name %></td>
+          <td class="student-list-item"><%= unit.unit_code %></td>
+          <td class="student-list-item"><%= unit.id %></td>
+
+
+          <td><%= link_to 'Show Task', student_class_unit_show_tasks_path(unit.id, student_class_id: @student_class.id) %></td>
+
+        </tr>
+      <% end %>
+    </tr>
+ </tr>
+</table>  

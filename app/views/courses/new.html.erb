@@ -1,0 +1,18 @@
+<h1> NEW COURSE </h1>
+
+<%= form_with model: @course do |form| %>
+
+  <div>
+    <%= form.label :course_name %><br>
+    <%= form.text_field :course_name %> 
+  </div>
+
+  <div>
+    <%= form.label :course_code %><br>
+    <%= form.text_field :course_code %> 
+  </div>  
+  <div>
+    <%= form.submit %>
+  </div>  
+
+<% end %>

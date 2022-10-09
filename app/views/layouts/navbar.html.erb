@@ -1,0 +1,9 @@
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li>
+    <%= link_to "Add User?", new_user_path %>
+  </li>
+  <li style="float:right">
+    <%= button_to "Sign out", session_path(session[:user_id]), method: "delete", :confirm => 'Are you sure?' %>
+  </li>
+</ul>

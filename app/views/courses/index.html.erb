@@ -1,0 +1,32 @@
+
+<% if Course.count.to_i != 0 %>
+
+<table>
+<tr >
+  <th>S.No</th>
+  <th>Course Name</th>
+  <th>Course Code</th>
+</tr>
+  
+<% @course.each do |course| %>
+
+<tr class="student-list-row">
+  <td class="student-list-item"><%= course.id %></td>
+  <td class="student-list-item"><%= course.course_name %></td>
+  <td class="student-list-item"><%= course.course_code %></td>
+  <td><%= link_to 'Show', course_path(course.id) %></td>
+  <td><%= link_to 'Delete', delete_course_course_path(course.id) %></td>
+</tr>
+
+<% end %>
+
+</tr>
+</table>
+<% else %>
+<h1>No students data available</h1> 
+<% end %>
+
+<%= link_to "Create New Course", new_course_path, class: 'btn btn-primary' %>
+<%= button_to "Sign out", session_path(session[:user_id]), method: "delete", class: "sign-out-btn" %>
+
+<%= link_to "Home", users_path, class: "active" %>

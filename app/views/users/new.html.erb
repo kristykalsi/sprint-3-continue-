@@ -1,0 +1,24 @@
+<% if flash[:notice] %>
+  <div id="snackbar">
+  <span id="api-msg"><%= flash[:notice] %></span> 
+<% end %>
+
+</div>
+<div class="login-container">
+  <%= content_tag :h1, "Add User", class: "login-form-header" %>
+
+  <div class="login-form">
+  <%= form_for @user do |f| %>
+    <%= f.label "Username:", class: "login-form-label" %>
+    <%= f.text_field :email, placeholder: "test@mail.com"%><br>
+    <%= f.label "Password:", class: "login-form-label" %>
+    <%= f.password_field :password, placeholder: "**********" %><br>
+    <% if flash[:error] %>
+      <%= content_tag :h1, flash[:error], class: "form-errors" %>
+    <% end %>
+    <div>
+      <%= f.submit "Add User", class: "login-button" %>
+    </div>
+  <% end %>
+  </div>
+</div>

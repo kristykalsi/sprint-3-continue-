@@ -1,0 +1,42 @@
+
+<%= form_tag(students_path, method: :get) do %>
+  <p> Search for a student </p>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag ("Search") %>
+<% end %>
+
+<% if Student.count.to_i != 0 %>
+
+  <table>
+    <tr class="student-list-row">
+      <th class="student-list-item"><%= link_to "Student ID", :sort => "student_id"%></th>
+      <th class="student-list-item"><%= link_to "Name", :sort => "name"%></th>
+      <th class="student-list-item">Class</th>
+      <th class="student-list-item"><%= link_to "Home School", :sort => "home_school"%></th>
+    </tr>
+      
+    <% @student.each do |student| %>
+
+    <tr class="student-list-row">
+      <td class="student-list-item"><%= link_to student.student_id, student_path(student.student_id) %></td>
+      <td class="student-list-item"><%= student.name %></td>
+      <td class="student-list-item"><%= student.group %></td>
+      <td class="student-list-item"><%= student.home_school %></td>
+      <td><%= link_to 'Show', student_path(student.student_id) %></td>
+      <td><%= link_to 'Edit', edit_student_path(student.student_id) %></td>
+      <td><%= link_to 'Delete', student_path(student), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to "Courses", student_student_classes_path(student) %></td>
+    </tr>
+
+    <% end %>
+
+    </tr>
+  </table>
+<% else %>
+ <h1>No students data available</h1> 
+<% end %>
+
+<%= link_to "Create New Student", new_student_path, class: 'btn btn-primary' %>
+<%= button_to "Sign out", session_path(session[:user_id]), method: "delete", class: "sign-out-btn" %>
+
+<%= link_to "Home", users_path, class: "active" %>

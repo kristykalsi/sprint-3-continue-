@@ -1,0 +1,59 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: 1
+  group: MyString
+  student_id: 1
+  name: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  phone: 1
+  home_school: MyString
+  external_email: MyString
+  usi: MyString
+  dob: 2022-06-02 01:39:35
+  lnn_assessment_registered_status: false
+  lnn_assessment_completed_status: false
+  enrolment_paperwork_completed__status: false
+  enrolment_paperwork_completed_date: 2022-06-02 01:39:35
+  enrolled_in_energySpace_userid: MyString
+  teams_group_and_chat_created_and_user_added_status: false
+  Comments: MyString
+  date: 2022-06-02 01:39:35
+  assessor_name: MyString
+  campus: MyString
+  yes_no_status: false
+  satisfactory: MyString
+  competency: MyString
+  course_code: MyString
+  course_name: MyString
+
+two:
+  uid: 1
+  group: MyString
+  student_id: 1
+  name: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  phone: 1
+  home_school: MyString
+  external_email: MyString
+  usi: MyString
+  dob: 2022-06-02 01:39:35
+  lnn_assessment_registered_status: false
+  lnn_assessment_completed_status: false
+  enrolment_paperwork_completed__status: false
+  enrolment_paperwork_completed_date: 2022-06-02 01:39:35
+  enrolled_in_energySpace_userid: MyString
+  teams_group_and_chat_created_and_user_added_status: false
+  Comments: MyString
+  date: 2022-06-02 01:39:35
+  assessor_name: MyString
+  campus: MyString
+  yes_no_status: false
+  satisfactory: MyString
+  competency: MyString
+  course_code: MyString
+  course_name: MyString

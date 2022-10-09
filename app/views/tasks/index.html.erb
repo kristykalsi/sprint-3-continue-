@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+<%= link_to "New Task", new_unit_task_path(unit_id: @unit.id) %>
+<table>
+  <tr>
+    <th>Task ID</th>
+    <th>Task Name</th>
+    <th>Action</th>
+  </tr>
+  
+  <% @tasks.each do |task| %>
+
+  <tr class="student-list-row">
+    <td class="student-list-item"><%= task.id %></td>
+    <td class="student-list-item"><%= task.name %></td>
+    <td><%= link_to 'Delete', unit_task_delete_task_path(task.id, unit_id: @unit.id) %></td>
+  </tr>
+
+  <% end %>
+
+</table>
+
+<%= link_to 'Back', course_path(@unit.course_id) %>
+
+

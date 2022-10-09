@@ -1,0 +1,11 @@
+<h2>Student: <%= @student.name %></h2>
+<h1>Select Course</h1>
+<div style="width: 50%">
+    <%= form_for @student_class do |f| %>
+        <%= f.hidden_field :student_id, value: @student.id %>
+        <%= f.select :course_id, options_for_select(@courses.map{|c| [c.course_name, c.id]}), {include_blank: "Select Course"}, {} %>
+        <br />
+        <br />
+        <%= f.submit "Save" %>
+    <% end %>
+</div>
